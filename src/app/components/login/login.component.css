@@ -1,6 +1,6 @@
 .login-body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(161, 219, 219);
+    background-color: rgb(14, 238, 238);
     margin-left: 20px;
 }
 .login-form {
@@ -14,7 +14,7 @@
     border: 2px solid #ccc;
     box-sizing: border-box;
 }
-.key {
+.submit-button {
     background-color: green;
     color: white;
     padding: 14px 20px;
@@ -23,7 +23,7 @@
     cursor: pointer;
     width: 10%;
 }
-.key:hover {
+.submit-button:hover {
     opacity: 0.7;
 }
 .container {

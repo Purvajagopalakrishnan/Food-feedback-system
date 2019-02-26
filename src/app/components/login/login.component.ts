@@ -28,21 +28,20 @@ export class LoginComponent implements OnInit {
   OnLogin() {
     this.submitted = true;
     if (this.loginForm.invalid) {
-        return;
-      }
-      this.localstorage.setitem("Email_id", <string>this.loginForm.get("email_id").value);
-      this.loginservice.login(this.loginform.email_id.value, this.loginform.password.value)
-      .subscribe(
-        userdetails => {
-          if(userdetails==true){
-            this.Login_User_details = userdetails;
-            this.router.navigate(["/addfeedback"]);
-          }
-          else{
-            alert("Invalid email id or password");
-          }
-        },
-        error => {}
-      );
+      return;
+    }
+    this.localstorage.setitem("Email_id", <string>this.loginForm.get("email_id").value);
+    this.loginservice.login(this.loginform.email_id.value, this.loginform.password.value)
+    .subscribe(
+      userdetails => {
+        if(userdetails == true) {
+          this.router.navigate(["/addfeedback"]);
+        }
+        else {
+          alert("Invalid email id or password");
+        }
+      },
+      error => {}
+    );
   }
 }

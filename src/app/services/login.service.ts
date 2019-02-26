@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  private loginurl = ("");
+  private loginurl = ("https://localhost:44346/api/login");
 
   constructor( private http:HttpClient ) { }
   login(email_id: string,password:string) {
