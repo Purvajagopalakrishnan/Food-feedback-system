@@ -1,0 +1,36 @@
+<div class="head-img">
+  <img src="/assets/images/img5.png">
+</div>
+<div class="title">
+  <h1>{{pageTitle}}</h1>
+</div>
+<p  class="header"> Login </p>
+<div class= "login-body">
+  <form [formGroup]="loginForm" class="login-form" (ngSubmit)="OnLogin()">
+      <div class="container">
+          <div class="form-group">
+              <div class="form-label">
+                  <label for="email_id"> E-mail: </label>
+              </div>
+              <input type="text" placeholder="Enter email id" formControlName="email_id" class="form-control login-input" [ngClass]="{ 'is-invalid': submitted && loginform.email_id.errors }" /><br>
+              <div *ngIf="submitted && loginform.email_id.errors" class="invalid-feedback">
+                  <div class="validator" *ngIf="loginform.email_id.errors.required"> Email Id is required </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="form-label">
+                  <label for="password"> Password: </label>
+              </div>
+              <input type="password" placeholder="Enter password" formControlName="password" class="form-control login-input" [ngClass]="{ 'is-invalid': submitted && loginform.password.errors }" /><br>
+              <div *ngIf="submitted && loginform.password.errors" class="invalid-feedback">
+                  <div class="validator" *ngIf="loginform.password.errors.required"> Password is required </div>
+              </div>
+          </div>
+          <div class="form-group"><br>
+              <button type="submit" class="btn btn-primary" class="key"> Login </button>
+          </div>
+          <p>Not Registered ? </p>
+          <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+.login-body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(161, 219, 219);
+    margin-left: 20px;
+}
+.login-form {
+    border: 3px solid gray;
+    text-align: center;
+}
+.login-input {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+}
+.key {
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+.key:hover {
+    opacity: 0.7;
+}
+.container {
+    padding: 16px;
+    border: 3px solid rgba(0, 0, 0, 0.8);
+}
+.validator {
+    color: red;
+}
+.form-label {
+    display: inline-block;
+    width: 140px;
+    text-align: right
+}
+.header{
+    margin: 20px;
+    color: darkolivegreen;
+    font-weight: bold;
+    font-size: 200%;
+    text-align: center;
+}
+.head-img {
+    margin-left: 45%
+}
