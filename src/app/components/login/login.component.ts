@@ -13,11 +13,10 @@ export class LoginComponent implements OnInit {
   pageTitle = 'Food Feedback system';
   loginForm: FormGroup;
   submitted = false;
-  Login_User_details: any;
   get loginform() { 
     return this.loginForm.controls;
   }
-  
+
   constructor(private formBuilder: FormBuilder ,private loginservice: LoginService, private router: Router, private localstorage: LocalStorageService) { }
 
   ngOnInit() {
@@ -31,11 +30,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.localstorage.setitem("Email_id", <string>this.loginForm.get("email_id").value);
     this.loginservice.login(this.loginform.email_id.value, this.loginform.password.value)
     .subscribe(
       userdetails => {
         if(userdetails == true) {
+          this.localstorage.setitem("Email_id", <string>this.loginForm.get("email_id").value);
           this.router.navigate(["/addfeedback"]);
         }
         else {
