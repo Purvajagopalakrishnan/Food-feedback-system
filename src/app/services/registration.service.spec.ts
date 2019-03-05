@@ -26,12 +26,6 @@ describe('RegistrationService', () => {
     expect(service).toBeTruthy();
   });
   it('should return observable of boolean', () => {
-    const data: Registration = {
-      EmpId: 'CES/101',
-      Username: 'John',
-      Email: 'john89@cesltd.com',
-      Password: 'welcome'
-    };
     postSpy.and.returnValue(of(true));
     service.register('test','test','test','test').subscribe(
       (response) => {

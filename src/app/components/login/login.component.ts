@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
     this.loginservice.login(this.loginform.email_id.value, this.loginform.password.value)
     .subscribe(
       userdetails => {
-        if(userdetails == true) {
+        if(userdetails==true)
+        {
           this.localstorage.setitem("Email_id", <string>this.loginForm.get("email_id").value);
           this.router.navigate(["/addfeedback"]);
         }

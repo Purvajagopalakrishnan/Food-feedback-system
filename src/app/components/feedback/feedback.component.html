@@ -1,0 +1,69 @@
+<body>
+  <div class="navigation-bar">
+    <button type="submit" (click)="OnClickAddFeedback()" class="select-menu">Add Feedback</button> |
+    <button type="submit" (click)="OnClickViewRating()" class="select-menu">View Rating</button>
+    <button type="submit" (click)="OnClickLogout()" class="select-menu logout-button">Logout</button>
+  </div> <br><br>
+  <div class="head-img">
+    <img src="/assets/images/img5.png">
+  </div>
+  <div class="title">
+    <h1>{{pageTitle}}</h1>
+    <h2>Feedback Form</h2>
+  </div>
+  <div *ngIf="show_content">
+    <form [formGroup]="feedbackForm" class="feedback-form" (ngSubmit)="OnSubmit()">
+      <div class = "container">
+        <div class="form-group">
+          <div class="form-label">
+            <label for="date">Select date:</label>
+          </div>
+          <input type="date" formControlName="date" class="form-control feedback-input" [ngClass]="{ 'is-invalid': submitted && feedbackform.date.errors }" /><br>
+         <div *ngIf="submitted && feedbackform.date.errors" class="invalid-feedback">
+            <div class="validator" *ngIf="feedbackform.date.errors.required"> Date is required </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">
+            <label for="type_of_meal">Type of meal:</label>
+          </div>
+          <select name="type_of_meal" formControlName="type_of_meal" class="form-control feedback-input" [ngClass]="{ 'is-invalid': submitted && feedbackform.type_of_meal.errors }" ><br>
+            <option value="lunch">Lunch</option>
+            <option value="tea break">Tea Break</option>
+            <option value="dinner">Dinner</option>
+          </select>
+          <div *ngIf="submitted && feedbackform.type_of_meal.errors" class="invalid-feedback">
+            <div class="validator" *ngIf="feedbackform.type_of_meal.errors.required"> Type of meal is required </div>
+          </div>
+        </div>
+         <div class="form-group">
+          <div class="form-label">
+            <label for="rating">Rating:</label>
+          </div>
+          <select name="rating" formControlName="rating" class="form-control feedback-input" [ngClass]="{ 'is-invalid': submitted && feedbackform.rating.errors }" ><br>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <div *ngIf="submitted && feedbackform.rating.errors" class="invalid-feedback">
+            <div class="validator" *ngIf="feedbackform.rating.errors.required"> Rating is required </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">
+            <label for="comments">Comments:</label>
+          </div>
+          <textarea name="message" rows="3" cols="10" formControlName="comments" class="form-control feedback-input" [ngClass]="{ 'is-invalid': submitted && feedbackform.comments.errors }" > </textarea><br>
+          <div *ngIf="submitted && feedbackform.comments.errors" class="invalid-feedback">
+            <div class="validator" *ngIf="feedbackform.comments.errors.required"> Comments is required </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid" class="feedback-button">Submit</button> 
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
