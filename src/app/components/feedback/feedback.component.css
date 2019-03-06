@@ -1,0 +1,49 @@
+.navigation-bar {
+    overflow: hidden;
+    background-color: #333;
+}
+.head-img {
+    margin-left: 45%
+}
+.select-menu {
+    background-color: rgb(143, 165, 84);
+    color:black;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}
+.container {
+    padding: 16px;
+    border: 3px solid black;
+    width: 50%;
+    margin-left: 30%;
+}
+.form-label {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+.validator {
+    color: red;
+    text-align: center;
+}
+.feedback-input {
+    width: 56%;
+    padding: 12px 20px;
+    margin-left: 46px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 27px;
+}
+.feedback-button {
+    padding: 14px 20px;
+    margin-left: 30%;
+    border: none;
+    cursor: pointer;
+}
+.logout-button {
+    float: right;
+}
