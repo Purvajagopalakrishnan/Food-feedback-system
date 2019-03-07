@@ -1,6 +1,6 @@
 export class AddFeedback {
     Select_Date: Date;
-    Type_Of_meal: string;
+    Type_of_meal: string;
     Rating: number; 
     Comments: string;
 }

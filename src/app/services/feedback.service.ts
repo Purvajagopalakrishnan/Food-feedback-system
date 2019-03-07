@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private Feedbackurl=("https://localhost:44346/api/addfeedback")
+  private Feedbackurl=("https://localhost:44346/api/addfeedback");
 
   constructor(private http:HttpClient) { }
   AddFeedback(date:Date,type_of_meal:string,rating:number,comments:string){
-    return this.http.post(this.Feedbackurl,{Date:date,Type_Of_Meal:type_of_meal,Rating:rating,Comments:comments});
+    return this.http.post(this.Feedbackurl,{Select_Date:date,Type_of_mtype_ofeal:type_of_meal,Rating:rating,Comments:comments});
   }
 }

@@ -1,0 +1,36 @@
+<div class="head-img">
+    <img src="/assets/images/img5.png">
+  </div>
+  <div class="title">
+    <h1>{{pageTitle}}</h1>
+  </div>
+  <form [formGroup]="viewratingForm" class="viewrating-form" (ngSubmit)="OnSubmit()">
+    <div class = "container">
+      <div class="form-group">
+        <div class="form-label">
+          <label for="date">Select date:</label>
+        </div>
+        <input type="date" formControlName="date" class="form-control viewrating-input" [ngClass]="{ 'is-invalid': submitted && viewratingform.date.errors }" /><br>
+       <div *ngIf="submitted && viewratingform.date.errors" class="invalid-feedback">
+          <div class="validator" *ngIf="viewratingform.date.errors.required"> Date is required </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">
+          <label for="type_of_meal">Type of meal:</label>
+        </div>
+        <select name="type_of_meal" formControlName="type_of_meal" class="form-control viewrating-input" [ngClass]="{ 'is-invalid': submitted && viewratingform.type_of_meal.errors }" ><br>
+          <option value="lunch">Lunch</option>
+          <option value="tea break">Tea Break</option>
+          <option value="dinner">Dinner</option>
+        </select>
+        <div *ngIf="submitted && viewratingform.type_of_meal.errors" class="invalid-feedback">
+          <div class="validator" *ngIf="viewratingform.type_of_meal.errors.required"> Type of meal is required </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="viewratingForm.invalid" class="viewrating-button">Submit</button> 
+      </div>
+      </div> <br> <br>
+      <button type="submit" class="logout-button" (click)="OnLogout()">Logout</button>
+      
