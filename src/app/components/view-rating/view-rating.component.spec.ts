@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ViewRatingComponent } from './view-rating.component';
 import { ViewRatingService } from 'src/app/services/view-rating.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
