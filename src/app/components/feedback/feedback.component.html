@@ -41,6 +41,7 @@
             <label for="rating">Rating:</label>
           </div>
           <select name="rating" formControlName="rating" class="form-control feedback-input" [ngClass]="{ 'is-invalid': submitted && feedbackform.rating.errors }" ><br>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

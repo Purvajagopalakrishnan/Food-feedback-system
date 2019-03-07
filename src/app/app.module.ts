@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { ViewRatingComponent } from './components/view-rating/view-rating.component';
+
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     LoginComponent,
     RegisterComponent,
     FeedbackComponent,
+    ViewRatingComponent,
   ],
   imports: [
     BrowserModule,

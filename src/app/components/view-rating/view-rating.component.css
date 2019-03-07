@@ -1,0 +1,43 @@
+.head-img {
+    margin-left: 45%
+}
+.container {
+    padding: 16px;
+    border: 3px solid black;
+    width: 50%;
+    margin-left: 30%;
+}
+.form-label {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+.validator {
+    color: red;
+    text-align: center;
+}
+.viewrating-input {
+    width: 56%;
+    padding: 12px 20px;
+    margin-left: 46px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 27px;
+}
+.viewrating-button {
+    padding: 14px 20px;
+    margin-left: 30%;
+    border: none;
+    cursor: pointer;
+}
+.logout-button {
+    margin-left: 46%;
+    background-color: green;
+    color:white;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-color: black;
+}
