@@ -9,6 +9,6 @@ export class FeedbackService {
 
   constructor(private http:HttpClient) { }
   AddFeedback(date:Date,type_of_meal:string,rating:number,comments:string){
-    return this.http.post(this.Feedbackurl,{Select_Date:date,Type_of_mtype_ofeal:type_of_meal,Rating:rating,Comments:comments});
+    return this.http.post(this.Feedbackurl,{SelectDate:date,TypeOfMeal:type_of_meal,Rating:rating,Comments:comments});
   }
 }
