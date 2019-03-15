@@ -31,7 +31,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should return observable of boolean', () => {
+  it('should return observable of number', () => {
     LoginSpy.and.returnValue(of(true));
     service.login('test', 'test').subscribe(
       (x) =>{

@@ -1,7 +1,8 @@
 <body>
   <div class="navigation-bar">
     <button type="submit" (click)="OnClickAddFeedback()" class="select-menu">Add Feedback</button> |
-    <button type="submit" (click)="OnClickViewRating()" class="select-menu">View Rating</button>
+    <button type="submit" (click)="OnClickViewRating()" class="select-menu">View Rating</button> |
+    <button *ngIf="showTitle" type="submit" (click)="OnClickViewComments()" class="select-menu">View Comments</button>
     <button type="submit" (click)="OnClickLogout()" class="select-menu logout-button">Logout</button>
   </div> <br><br>
   <div class="head-img">
@@ -11,7 +12,7 @@
     <h1>{{pageTitle}}</h1>
     <h2>Feedback Form</h2>
   </div>
-  <div *ngIf="show_content">
+  <div *ngIf="showContent">
     <form [formGroup]="feedbackForm" class="feedback-form" (ngSubmit)="OnSubmit()">
       <div class = "container">
         <div class="form-group">

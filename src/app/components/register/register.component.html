@@ -9,7 +9,7 @@
     <h2>Register</h2>
   </div>
   <div class="page-body">
-    <form [formGroup]="registerForm" class="register-form" (ngSubmit)="OnRegister()">
+    <form [formGroup]="registerForm" class="register-form" (ngSubmit)="onRegister()">
       <div class="container">
         <div class="form-group">
           <div class="form-label">
@@ -17,7 +17,7 @@
           </div>
           <input type="text" formControlName="username" class="form-control form-input" [ngClass]="{ 'is-invalid': submitted && registerform.username.errors }" />
           <div *ngIf="submitted && registerform.username.errors" class="invalid-feedback">
-            <div *ngIf="registerform.username.errors.required">User name is required</div>
+            <div *ngIf="registerform.username.errors.required" class="validator">User name is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -26,7 +26,7 @@
           </div>
           <input type="text" formControlName="emp_id" class="form-control form-input" [ngClass]="{ 'is-invalid': submitted && registerform.emp_id.errors }" />
           <div *ngIf="submitted && registerform.emp_id.errors" class="invalid-feedback">
-            <div *ngIf="registerform.emp_id.errors.required">Employee id is required</div>
+            <div *ngIf="registerform.emp_id.errors.required" class="validator">Employee id is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -35,8 +35,8 @@
           </div>
           <input type="text" formControlName="email_id" class="form-control form-input" [ngClass]="{ 'is-invalid': submitted && registerform.email_id.errors }" />
           <div *ngIf="submitted && registerform.email_id.errors" class="invalid-feedback">
-            <div *ngIf="registerform.email_id.errors.pattern">Email must be on the cesltd.com domain</div>
-            <div *ngIf="registerform.email_id.errors.required">Email is required</div>
+            <div *ngIf="registerform.email_id.errors.pattern" class="validator">Email must be on the cesltd.com domain</div>
+            <div *ngIf="registerform.email_id.errors.required" class="validator">Email is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -45,12 +45,12 @@
           </div>
           <input type="password" formControlName="password" class="form-control form-input" [ngClass]="{ 'is-invalid': submitted && registerform.password.errors }" />
           <div *ngIf="submitted && registerform.password.errors" class="invalid-feedback">
-            <div *ngIf="registerform.password.errors.required">Password is required</div>
-            <div *ngIf="registerform.password.errors.minlength">Password must be at least 6 characters</div>
+            <div *ngIf="registerform.password.errors.required" class="validator">Password is required</div>
+            <div *ngIf="registerform.password.errors.minlength" class="validator">Password must be at least 6 characters</div>
           </div>
         </div>
         <div class="form-group" >
-          <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" [ngClass]="{'button-disabled':registerForm.invalid }" class="register-button">Register</button> <br> <br>
+          <button type="submit" class="btn btn-primary" class="register-button">Register</button> <br> <br>
           <a [routerLink]="['/login']" class="btn btn-link" class="login-button" >Login</a>
         </div>
       </div>

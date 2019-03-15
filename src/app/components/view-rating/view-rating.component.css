@@ -34,10 +34,19 @@
     cursor: pointer;
 }
 .logout-button {
-    margin-left: 46%;
-    background-color: green;
-    color:white;
+    float: right;
+}
+.navigation-bar {
+    overflow: hidden;
+    background-color: #333;
+}
+.select-menu {
+    background-color: rgb(143, 165, 84);
+    color:black;
     padding: 14px 20px;
+    border: none;
     cursor: pointer;
-    border-color: black;
+}
+.header{
+    text-align: center;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ViewRatingService } from 'src/app/services/view-rating.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-view-rating',
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 export class ViewRatingComponent implements OnInit {
   pageTitle = 'Food Feedback system';
   submitted = false;
-  Average_rating: any;
+  averageRating: any;
   viewratingForm: FormGroup;
   get viewratingform() {
     return this.viewratingForm.controls;
   }
 
-  constructor(private viewratingservice:ViewRatingService, private router:Router, private formBuilder:FormBuilder) { }
+  constructor(private viewratingservice:ViewRatingService, private router:Router, private formBuilder:FormBuilder, private localstroageservice: LocalStorageService) { }
 
   ngOnInit() {
     this.viewratingForm = this.formBuilder.group({
@@ -25,17 +26,20 @@ export class ViewRatingComponent implements OnInit {
       type_of_meal: ['',Validators.required],
     });
   }
-  OnSubmit(){
+  OnSubmit() {
     this.submitted = true;
     this.viewratingservice.ViewRating(this.viewratingform.date.value,this.viewratingform.type_of_meal.value)
     .subscribe(
       Average_rating => {
-        this.Average_rating = Average_rating;
+        this.averageRating = Average_rating;
       },
-      error => {}
+      error => {
+        alert("Not found");
+      }
     );
   }
-  OnLogout(){
+  OnLogout() {
+    this.localstroageservice.removeItem('IsAdmin');
     this.router.navigate(['/login']);
   }
 }
