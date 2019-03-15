@@ -1,0 +1,20 @@
+<body>
+    <div class="navigation-bar">
+        <button type="submit" (click)="onClickLogout()" class="select-menu logout-button">Logout</button>
+    </div> <br> <br>
+    <table class="table-border">
+        <tr>
+            <th class="table-header">Date</th>
+            <th class="table-header">Type of meal</th>
+            <th class="table-header">Rating</th>
+            <th class="table-header">Comments</th>
+            <th class="table-header">Mail id</th>
+        <tr *ngFor= "let feedback of getFeedback">
+            <td class="table-detail">{{feedback.selectDate.getDate()}}</td>
+            <td class="table-detail">{{feedback.typeOfMeal}}</td>
+            <td class="table-detail">{{feedback.rating}}</td>
+            <td class="table-detail">{{feedback.comments}}</td>
+            <td class="table-detail">{{feedback.email}}</td>
+        </tr>
+    </table>
+</body>

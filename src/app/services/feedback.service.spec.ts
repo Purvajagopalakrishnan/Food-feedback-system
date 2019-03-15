@@ -26,7 +26,7 @@ describe('FeedbackService', () => {
   });
   it('should return observable of AddFeedback', () =>{
     postSpy.and.returnValue(of(true));
-    service.AddFeedback(new Date('28 Feb 2019 00:00:00 GMT'),'test',5,'good').subscribe(
+    service.AddFeedback(new Date('28 Feb 2019 00:00:00 GMT'),'test',5,'good','john89@cesltd.com').subscribe(
       (response) => {
         expect(response).toBeTruthy();
       }

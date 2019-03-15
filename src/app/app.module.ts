@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { ViewRatingComponent } from './components/view-rating/view-rating.component';
+import { ViewCommentsComponent } from './components/view-comments/view-comments.component';
+
+
 
 
 
@@ -18,6 +21,7 @@ import { ViewRatingComponent } from './components/view-rating/view-rating.compon
     RegisterComponent,
     FeedbackComponent,
     ViewRatingComponent,
+    ViewCommentsComponent
   ],
   imports: [
     BrowserModule,
