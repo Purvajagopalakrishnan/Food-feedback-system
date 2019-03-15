@@ -10,7 +10,7 @@
             <th class="table-header">Comments</th>
             <th class="table-header">Mail id</th>
         <tr *ngFor= "let feedback of getFeedback">
-            <td class="table-detail">{{feedback.selectDate.getDate()}}</td>
+            <td class="table-detail">{{feedback.selectDate}}</td>
             <td class="table-detail">{{feedback.typeOfMeal}}</td>
             <td class="table-detail">{{feedback.rating}}</td>
             <td class="table-detail">{{feedback.comments}}</td>
