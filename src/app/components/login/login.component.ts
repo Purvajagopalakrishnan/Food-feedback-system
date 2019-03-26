@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { LoginService } from 'src/app/services/login.service';
+import { Userdetails } from 'src/app/Class & Interfaces/userdetails';
 
 @Component({
   selector: 'app-login',
@@ -32,18 +33,21 @@ export class LoginComponent implements OnInit {
     }
     this.loginservice.login(this.loginform.email_id.value, this.loginform.password.value)
     .subscribe(
-      userdetails => {
-        if(userdetails != 2)
+      (userdetails: Userdetails) => {
+        if(userdetails != null)
         {
-          this.localstorage.setitem("Email_id",<string>this.loginForm.get("email_id").value)
-          this.localstorage.setitem("IsAdmin", userdetails);
+          this.localstorage.setitem("Email_id",userdetails.email);
+          this.localstorage.setitem("isAdmin", userdetails.isAdmin);
+          this.localstorage.setitem("token",userdetails.token);
           this.router.navigate(["/addfeedback"]);
         }
-        else {
+        else{
           alert("Invalid email id or password");
         }
       },
-      error => {}
+      error => {
+        alert("Exception");
+      }
     );
   }
 }

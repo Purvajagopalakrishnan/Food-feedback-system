@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
     this.registerservice.register(this.registerform.emp_id.value,this.registerform.username.value,this.registerform.email_id.value,this.registerform.password.value)
     .subscribe(
       registrationdetails => {
-        console.log(registrationdetails);
         if(registrationdetails == 1) {
           alert("You have successfully registered !! You can login now");
         }
@@ -46,6 +45,7 @@ export class RegisterComponent implements OnInit {
         else {
           alert("Employee id already exists");
         }
+        this.registerForm.reset();
       },
       error => {}
     );

@@ -38,5 +38,5 @@
     </div>
   </div> <br> <br>
 </form>
-<h1 class="header">{{averageRating | json}}</h1>
+<h3 class="header" *ngIf="showMessage">Average Rating for the selected meal on the particular date is "{{averageRating | json}}" </h3>
       

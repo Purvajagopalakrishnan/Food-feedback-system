@@ -1,7 +1,8 @@
 .login-body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(14, 238, 238);
-    margin-left: 20px;
+    background-color: rgb(170, 170, 170);
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .login-form {
     border: 3px solid gray;

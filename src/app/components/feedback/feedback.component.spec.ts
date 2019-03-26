@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FeedbackComponent } from './feedback.component';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 
 describe('FeedbackComponent', () => {
   let component: FeedbackComponent;
@@ -25,7 +25,7 @@ describe('FeedbackComponent', () => {
     })
     .compileComponents();
     service =  TestBed.get(FeedbackService);
-    FeedbackSpy = TestBed.get(FeedbackService).register;
+    FeedbackSpy = TestBed.get(FeedbackService).AddFeedback;
   }));
 
   beforeEach(() => {
@@ -73,4 +73,13 @@ describe('FeedbackComponent', () => {
     errors = comments.errors || {};
     expect(errors['required']).toBeFalsy();
   });
+  it('form reset', () => {
+    FeedbackSpy.and.returnValue(of('AddFeedback'));
+    component.OnSubmit();
+    expect(component.feedbackForm.reset).toHaveBeenCalled;
+  });
+  // it('alert works', () => {
+  //   FeedbackSpy.and.returnValue(of('AddFeedback'));
+  //   component.OnSubmit();
+  // });
 });

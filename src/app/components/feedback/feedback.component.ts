@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-feedback',
@@ -17,6 +16,8 @@ export class FeedbackComponent implements OnInit {
   feedbackForm: FormGroup;
   submitted = false;
   showTitle: boolean;
+  rating: number;
+
   get feedbackform() {
     return this.feedbackForm.controls;
   }
@@ -29,8 +30,9 @@ export class FeedbackComponent implements OnInit {
       date: ['',Validators.required],
       type_of_meal: ['',Validators.required],
       rating: ['',Validators.required],
-      comments: ['',Validators.required]
+      comments: ['',Validators.required],
     });
+    
   }
   OnClickAddFeedback() {
     this.showContent = true;
@@ -43,8 +45,12 @@ export class FeedbackComponent implements OnInit {
       addFeedback => {
       this.addFeedback = addFeedback;
       alert('Your feedback is saved. Thank you !');
+      this.feedbackForm.reset();
       },
-       error => {}
+       error => {
+         alert("You have already registered your feedback for this date and meal.");
+         this.feedbackForm.reset();
+       }
     );
   }
   OnClickViewRating() {
@@ -54,11 +60,17 @@ export class FeedbackComponent implements OnInit {
     this.router.navigate(["/viewcomments"]);
   }
   OnClickLogout() {
-    this.localstroageservice.removeItem('IsAdmin');
+    this.localstroageservice.removeItem('isAdmin');
     this.router.navigate(['/login']);
+    this.localstroageservice.removeItem('Email_id');
+    this.localstroageservice.removeItem('token');
   }
-
   hideNonAdminContent(): void {
-    (this.localstroageservice.RetrieveItem("IsAdmin") == 1) ? this.showTitle = true : this.showTitle = false;
+    const isAdminValue: string = this.localstroageservice.RetrieveItem('isAdmin');
+    if(isAdminValue === "true") {
+      this.showTitle = true;
+    } else {
+      this.showTitle = false;
+    }
   }
 }

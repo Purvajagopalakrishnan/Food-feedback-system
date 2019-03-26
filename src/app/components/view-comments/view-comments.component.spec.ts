@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 
-fdescribe('ViewCommentsComponent', () => {
+describe('ViewCommentsComponent', () => {
   let component: ViewCommentsComponent;
   let fixture: ComponentFixture<ViewCommentsComponent>;
   let service: ViewCommentsService;

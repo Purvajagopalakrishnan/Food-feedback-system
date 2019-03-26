@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { ViewRatingComponent } from './components/view-rating/view-rating.component';
 import { ViewCommentsComponent } from './components/view-comments/view-comments.component';
+import { ErrorComponent } from './components/error/error.component';
 
 
 
@@ -21,7 +22,8 @@ import { ViewCommentsComponent } from './components/view-comments/view-comments.
     RegisterComponent,
     FeedbackComponent,
     ViewRatingComponent,
-    ViewCommentsComponent
+    ViewCommentsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

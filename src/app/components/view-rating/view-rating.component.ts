@@ -14,6 +14,8 @@ export class ViewRatingComponent implements OnInit {
   submitted = false;
   averageRating: any;
   viewratingForm: FormGroup;
+  showMessage = false;
+  showTitle: boolean;
   get viewratingform() {
     return this.viewratingForm.controls;
   }
@@ -21,6 +23,7 @@ export class ViewRatingComponent implements OnInit {
   constructor(private viewratingservice:ViewRatingService, private router:Router, private formBuilder:FormBuilder, private localstroageservice: LocalStorageService) { }
 
   ngOnInit() {
+    this.hideNonAdminContent();
     this.viewratingForm = this.formBuilder.group({
       date: ['',Validators.required],
       type_of_meal: ['',Validators.required],
@@ -32,14 +35,25 @@ export class ViewRatingComponent implements OnInit {
     .subscribe(
       Average_rating => {
         this.averageRating = Average_rating;
+        this.showMessage = true;
       },
       error => {
-        alert("Not found");
+        alert("Record Not found");
       }
     );
   }
   OnLogout() {
-    this.localstroageservice.removeItem('IsAdmin');
+    this.localstroageservice.removeItem('isAdmin');
     this.router.navigate(['/login']);
+    this.localstroageservice.removeItem('Email_id');
+    this.localstroageservice.removeItem('token');
+  }
+  hideNonAdminContent(): void {
+    const isAdminValue: string = this.localstroageservice.RetrieveItem('isAdmin');
+    if(isAdminValue === "true") {
+      this.showTitle = true;
+    } else {
+      this.showTitle = false;
+    }
   }
 }

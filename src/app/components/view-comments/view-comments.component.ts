@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewCommentsService } from 'src/app/services/view-comments.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Router } from '@angular/router';
-import { ViewComments } from 'src/app/Class & Interfaces/view-comments';
+
 
 @Component({
   selector: 'app-view-comments',
@@ -16,13 +16,15 @@ export class ViewCommentsComponent implements OnInit {
   ngOnInit() {
     this.viewCommentsService.GetFeedbackDetails().subscribe(
        employeeFeedback => {
-        this.getFeedback = employeeFeedback  
+        this.getFeedback = employeeFeedback
       },
       error => {}
     )
   }
   onClickLogout() {
-    this.localStorageService.removeItem('IsAdmin');
+    this.localStorageService.removeItem('isAdmin');
     this.router.navigate(['/login']);
+    this.localStorageService.removeItem('Email_id');
+    this.localStorageService.removeItem('token');
   }
 }
